@@ -24,7 +24,6 @@ class prqueue {
     NODE* curr;
     NODE* temp;  // Optional
 
-    // TODO_STUDENT: add private helper function definitions here
     // Clones a given tree, used in copy constructor and assignment operator
     NODE* _clone(NODE* node, NODE* parent = nullptr) {
         if (!node) return nullptr; 
@@ -118,7 +117,6 @@ class prqueue {
     ///
     /// Runs in O(1).
     prqueue() {
-        // TODO_STUDENT
         root = nullptr;
         sz = 0;
         curr = nullptr;
@@ -132,7 +130,7 @@ class prqueue {
     ///
     /// Runs in O(N), where N is the number of values in `other`.
     prqueue(const prqueue& other) {
-        // TODO_STUDENT
+        
         root = nullptr;  
         sz = other.sz;   
 
@@ -150,7 +148,7 @@ class prqueue {
     /// Runs in O(N + O), where N is the number of values in `this`, and O is
     /// the number of values in `other`.
     prqueue& operator=(const prqueue& other) {
-        // TODO_STUDENT
+        
         if (this != &other) { // Handle self-assignment
             clear(); // Clear existing content
             root = _clone(other.root); // Deep copy
@@ -163,7 +161,7 @@ class prqueue {
     ///
     /// Runs in O(N), where N is the number of values.
     void clear() {
-        // TODO_STUDENT
+        
         _clear(root);
         root = nullptr;
         sz = 0;
@@ -173,7 +171,7 @@ class prqueue {
     ///
     /// Runs in O(N), where N is the number of values.
     ~prqueue() {
-        // TODO_STUDENT
+        
         clear();
         
     }
@@ -185,7 +183,7 @@ class prqueue {
     /// Runs in O(H + M), where H is the height of the tree, and M is
     /// the number of duplicate priorities.
     void enqueue(T value, int priority) {
-        // TODO_STUDENT
+        
         _insert(root, nullptr, value, priority);
         sz++;
           
@@ -200,7 +198,7 @@ class prqueue {
     /// Runs in O(H + M), where H is the height of the tree, and M is
     /// the number of duplicate priorities.
     T peek() const {
-        // TODO_STUDENT
+        
         if (!root) {
             return T{}; // Return default value for T if the queue is empty.
         }
@@ -219,7 +217,7 @@ class prqueue {
     /// Runs in O(H + M), where H is the height of the tree, and M is
     /// the number of duplicate priorities.
     T dequeue() {
-        // TODO_STUDENT
+        
         if (!root) {
             return T{};  // If the queue is empty, return the default value of T.
         }
@@ -300,7 +298,7 @@ class prqueue {
     ///
     /// Runs in O(1).
     size_t size() const {
-        // TODO_STUDENT
+        
         return sz;
     }
 
@@ -310,7 +308,7 @@ class prqueue {
     ///
     /// O(H), where H is the maximum height of the tree.
     void begin() {
-        // TODO_STUDENT
+        
         curr = root; // Starting traversal from the root
 
         while (curr) {
@@ -358,7 +356,7 @@ class prqueue {
     /// H is the height of the tree, and M is the number of duplicate
     /// priorities.
     bool next(T& value, int& priority) {
-        // TODO_STUDENT
+        
         // When both current and temp are null, traversal is complete
         if (!curr && !temp) {
             return false;
@@ -434,7 +432,7 @@ class prqueue {
     ///
     /// Runs in O(N), where N is the number of values.
     string as_string() const {
-        // TODO_STUDENT
+        
         ostringstream oss;
         _inOrderTraversal(root, oss);
         return oss.str();
@@ -479,7 +477,7 @@ class prqueue {
     /// either `prqueue`.
     ///
     bool operator==(const prqueue& other) const {
-        // TODO_STUDENT
+        
         return _areEqual(root, other.root);
     }
 
